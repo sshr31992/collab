@@ -1,0 +1,15 @@
+#libcrypto pkg-config source file
+
+prefix=/Users/shuhei/Desktop/h2o-2.0.2/libressl-build
+exec_prefix=${prefix}
+libdir=/Users/shuhei/Desktop/h2o-2.0.2/libressl-build/lib
+includedir=${prefix}/include
+
+Name: LibreSSL-libssl
+Description: Secure Sockets Layer and cryptography libraries
+Version: 2.2.7
+Requires:
+Conflicts:
+Libs: -L${libdir} -lcrypto
+Libs.private: 
+Cflags: -I${includedir}

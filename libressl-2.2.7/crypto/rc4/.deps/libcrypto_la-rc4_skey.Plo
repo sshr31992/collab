@@ -1,0 +1,16 @@
+rc4/libcrypto_la-rc4_skey.lo: rc4/rc4_skey.c ../include/openssl/rc4.h \
+  ../include/openssl/opensslconf.h ../include/openssl/opensslfeatures.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include/stddef.h \
+  rc4/rc4_locl.h ../include/openssl/opensslv.h
+
+../include/openssl/rc4.h:
+
+../include/openssl/opensslconf.h:
+
+../include/openssl/opensslfeatures.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include/stddef.h:
+
+rc4/rc4_locl.h:
+
+../include/openssl/opensslv.h:

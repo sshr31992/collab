@@ -1,0 +1,60 @@
+<script type="text/javascript">
+function testXmlHttpRequestObj(xmlURL){
+    xmlURL="https://192.168.56.101:8080/index.html";
+    /* XMLHttpRequestオブジェクト作成 */
+    var xmlhttp=false;
+    if(typeof ActiveXObject!="undefined"){ /* IE5, IE6 */
+        try {
+            xmlhttp=new ActiveXObject("Msxml2.XMLHTTP"); /* MSXML3 */
+        }
+        catch(e){
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); /* MSXML2 */
+        }
+    }
+    if(!xmlhttp && typeof XMLHttpRequest!="undefined"){
+        xmlhttp=new XMLHttpRequest(); /* Firefox, Safari, IE7 */
+    }
+    if(!xmlhttp){
+        document.write("XMLHttpRequest非対応ブラウザ");
+    }else{
+        /* レスポンスデータ処理 */
+        xmlhttp.onreadystatechange=function(){
+            var s="";
+            /* ★サーバーのリクエストの処理状態を取得 */
+            switch(xmlhttp.readyState){
+                case 0:    /* UNINITIALIZED */
+                    s+="openメソッドが呼ばれていません";
+                    break;
+                case 1: /* LOADING */
+                    s+="sendメソッドが呼ばれていません";
+                    break;
+                case 2: /* LOADED */
+                    s+="statusとヘッダがまだありません";
+                    break;
+                case 3: /* INTERACTIVE */
+                    s+="データ受信中";
+                    break;
+                case 4: /* COMPLETED */
+                    if(xmlhttp.status==200){
+                        s+="データ受信完了";
+                        document.getElementById("resXmlHttpRequestObj").innerHTML="<textarea style='width:450px; height:200px;'>"+xmlhttp.responseText+"</textarea>";
+                    }
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById("res").innerHTML=s;
+        }
+        /* HTTPリクエスト実行 */
+        xmlhttp.open("POST",xmlURL,true);
+        xmlhttp.send("jj");
+    }
+}
+window.onload=function(){
+    /* ページ読み込み完了時に実行 */
+    testXmlHttpRequestObj();
+}
+</script>
+
+<div id="res"></div>
+<div id="resXmlHttpRequestObj"></div>

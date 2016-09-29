@@ -1,0 +1,18 @@
+#!/bin/sh
+
+while [ $# -gt 0 ]; do
+  case $1 in
+    --cflags) echo -g -std=gnu99 -O3 -Wall -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wwrite-strings -I"/Users/shuhei/Desktop/h2o-2.0.2/deps/mruby/include";;
+    --ldflags) echo -L/Users/shuhei/Desktop/h2o-2.0.2/mruby/host/lib;;
+    --ldflags-before-libs) ;;
+    --libs) echo -lmruby -lm -lreadline -lncurses;;
+    --help) echo "Usage: mruby-config [switches]"
+            echo "  switches:"
+            echo "  --cflags                    print flags passed to compiler"
+            echo "  --ldflags                   print flags passed to linker"
+            echo "  --ldflags-before-libs       print flags passwd to linker before linked libraries"
+            echo "  --libs                      print linked libraries"
+            exit 0;;
+  esac
+  shift
+done

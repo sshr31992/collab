@@ -1,0 +1,11 @@
+#openssl pkg-config source file
+
+prefix=/Users/shuhei/Desktop/h2o-2.0.2/libressl-build
+exec_prefix=${prefix}
+libdir=/Users/shuhei/Desktop/h2o-2.0.2/libressl-build/lib
+includedir=${prefix}/include
+
+Name: LibreSSL
+Description: Secure Sockets Layer and cryptography libraries and tools
+Version: 2.2.7
+Requires: libssl libcrypto
